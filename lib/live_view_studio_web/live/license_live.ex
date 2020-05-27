@@ -45,7 +45,6 @@ defmodule LiveViewStudioWeb.LicenseLive do
         seats: seats,
         amount: Licenses.calculate(seats)
       )
-
     {:noreply, socket}
   end
 end
