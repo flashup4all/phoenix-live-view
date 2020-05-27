@@ -32,6 +32,7 @@ defmodule LiveViewStudioWeb.LightLive do
         <img src="images/light-on.svg">
       </button>
     </div>
+
     """
   end
 
@@ -46,6 +47,7 @@ defmodule LiveViewStudioWeb.LightLive do
   end
 
   def handle_event("down", _, socket) do
+
     socket = update(socket, :brightness, &(&1 - 10))
     {:noreply, socket}
   end
