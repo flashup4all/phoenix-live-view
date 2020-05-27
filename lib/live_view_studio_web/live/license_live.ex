@@ -5,7 +5,7 @@ defmodule LiveViewStudioWeb.LicenseLive do
   import Number.Currency
 
   def mount(_params, _session, socket) do
-    socket = assign(socket, seats: 3, amount: Licenses.calculate(3))
+    socket = assign(socket, seats: 3, amount: Licenses.calculate(3), user_name: "")
     {:ok, socket}
   end
 
@@ -33,6 +33,15 @@ defmodule LiveViewStudioWeb.LicenseLive do
           </div>
         </div>
       </div>
+      <form phx-change="newuser">
+          <input type="text" name="user_name" value="<%= @user_name %>" placeholder="Name">
+          <button type="submit">
+              Save
+          </button>
+      </form>
+      <div>
+        <%= inspect @user_name %>
+      </div>
     </div>
     """
   end
@@ -45,6 +54,14 @@ defmodule LiveViewStudioWeb.LicenseLive do
         seats: seats,
         amount: Licenses.calculate(seats)
       )
+    {:noreply, socket}
+  end
+  def handle_event("newuser", %{"user_name" => user}, socket) do
+    socket =
+      assign(socket,
+        user_name: user
+      )
+
     {:noreply, socket}
   end
 end
