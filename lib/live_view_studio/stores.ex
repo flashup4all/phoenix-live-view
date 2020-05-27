@@ -1,7 +1,6 @@
 defmodule LiveViewStudio.Stores do
   def search_by_zip(zip) do
     :timer.sleep(2000)
-
     list_stores()
     |> Enum.filter(&(&1.zip == zip))
   end
@@ -51,6 +50,24 @@ defmodule LiveViewStudio.Stores do
       },
       %{
         name: "Midtown Denver",
+        street: "7 Broncos Parkway",
+        phone_number: "720-555-0150",
+        city: "Denver, CO",
+        zip: "80204",
+        open: false,
+        hours: "8am - 10pm M-F"
+      },
+      %{
+        name: "Ahead Denver",
+        street: "7 Broncos Parkway",
+        phone_number: "720-555-0150",
+        city: "Denver, CO",
+        zip: "80204",
+        open: false,
+        hours: "8am - 10pm M-F"
+      },
+      %{
+        name: "Mactown Denver",
         street: "7 Broncos Parkway",
         phone_number: "720-555-0150",
         city: "Denver, CO",

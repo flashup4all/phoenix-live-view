@@ -1,4 +1,5 @@
 defmodule LiveViewStudioWeb.SearchLive do
+
   use LiveViewStudioWeb, :live_view
 
   alias LiveViewStudio.Stores
@@ -10,7 +11,6 @@ defmodule LiveViewStudioWeb.SearchLive do
         stores: [],
         loading: false
       )
-
     {:ok, socket}
   end
 
