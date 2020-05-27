@@ -9,14 +9,9 @@ defmodule LiveViewStudioWeb.AutocompleteLive do
       assign(socket,
         zip: "",
         city: "",
-<<<<<<< HEAD
         matches: [],
         stores: [],
         user_name: "",
-=======
-        stores: [],
-        matches: [],
->>>>>>> master
         loading: false
       )
 
@@ -38,22 +33,12 @@ defmodule LiveViewStudioWeb.AutocompleteLive do
           <img src="images/search.svg">
         </button>
       </form>
-<<<<<<< HEAD
       <form phx-submit="city-search" phx-change="suggest-city">
         <input type="text" name="city" value="<%= @city %>"
                placeholder="City"
               autocomplete="off"
               phx-debounce="1000"
               list="matches"
-=======
-
-      <form phx-submit="city-search" phx-change="suggest-city">
-        <input type="text" name="city" value="<%= @city %>"
-               placeholder="City"
-               autocomplete="off"
-               list="matches"
-               phx-debounce="1000"
->>>>>>> master
                <%= if @loading, do: "readonly" %> />
 
         <button type="submit">
@@ -63,18 +48,9 @@ defmodule LiveViewStudioWeb.AutocompleteLive do
 
       <datalist id="matches">
         <%= for match <- @matches do %>
-<<<<<<< HEAD
         <option value="<%= match %>"> <%= match %></option>
         <%= end%>
       </datalist>
-
-=======
-          <option value="<%= match %>"><%= match %></option>
-        <% end %>
-      </datalist>
-
-
->>>>>>> master
       <%= if @loading do %>
         <div class="loader">
           Loading...
@@ -111,18 +87,9 @@ defmodule LiveViewStudioWeb.AutocompleteLive do
           <% end %>
         </ul>
       </div>
-<<<<<<< HEAD
-
-
-=======
->>>>>>> master
     </div>
     """
   end
-
-<<<<<<< HEAD
-
-
 
   def handle_event("suggest-city", %{ "city" => prefix }, socket) do
     socket = assign(socket, matches: Cities.suggest(prefix))
@@ -134,9 +101,6 @@ defmodule LiveViewStudioWeb.AutocompleteLive do
     socket = assign(socket, user_name: user_name)
     {:noreply, socket}
   end
-
-=======
->>>>>>> master
   def handle_event("zip-search", %{"zip" => zip}, socket) do
     send(self(), {:run_zip_search, zip})
 
@@ -162,14 +126,6 @@ defmodule LiveViewStudioWeb.AutocompleteLive do
 
     {:noreply, socket}
   end
-
-<<<<<<< HEAD
-=======
-  def handle_event("suggest-city", %{"city" => prefix}, socket) do
-    socket = assign(socket, matches: Cities.suggest(prefix))
-    {:noreply, socket}
-  end
->>>>>>> master
 
   def handle_info({:run_zip_search, zip}, socket) do
     case Stores.search_by_zip(zip) do
@@ -202,9 +158,4 @@ defmodule LiveViewStudioWeb.AutocompleteLive do
         {:noreply, socket}
     end
   end
-<<<<<<< HEAD
-
-
-=======
->>>>>>> master
 end
