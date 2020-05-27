@@ -21,5 +21,5 @@
 This app was generated using:
 
 ```sh
-mix phx.new live_view_studio --live
+mix phx.new app_live_view --live
 ```
